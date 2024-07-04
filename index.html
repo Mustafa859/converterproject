@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>*{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family:  'Arial Narrow Bold', sans-serif;
+    }        
+    :root{
+        --pink-border-color: #B295FF;
+        --pink-color: #CCC1FF;
+        --white-color: #FFFFFF;
+        --purple-color: #6943FF;
+        --darkblack-color: #1F2937;
+        --gray-color: #273549;
+    }
+    
+    /*  || top dev section button and input element is here */
+    
+    .top_dev{
+        background-color: var(--purple-color);
+        width: 100vw;
+        height: 35vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+    /* header  */
+    .heading{
+        text-align: center;
+        font-size: 2rem;
+        color: var(--white-color);
+    }
+    /* input */
+    .input{
+        height: 83px;
+        width: 117px;
+        color: var(--white-color);
+        border: 2px solid var(--pink-border-color);
+        border-radius: 5px;
+        background-color: var(--purple-color);
+        padding: auto;
+        font-size: 58px;
+        text-align: center;
+    }
+    /* button */
+    .button{
+        width: 117px;
+        height: 42px;
+        font-weight: bold;
+    }
+    
+    /* |||| button container */
+    .bottom_dev{
+        background-color: var(--darkblack-color);
+        height: 75vh;
+        width: 100vw;
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+        gap: 23px;
+        padding-top: 60px;
+    }
+    .children{
+        background-color: var(--gray-color);
+        height: 15vh;
+        text-align: center;
+        color: var(--pink-color);
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 9px;
+    }
+    .children p {
+        color: var(--white-color);
+        font-size: 14px;
+    }
+    </style>
+</head>
+<body>
+     <div class="container">
+        <div class="top_dev">
+            <h1 class="heading">Metric/Imperial Unit Conversion</h1>
+            <input type="text" class="input">
+            <button class="button">Convert</button>
+     </div>
+     <div class="bottom_dev">
+         <div class="children"><h2>Length (Meter/Feet)</h2><p class="first_child"></p>
+        </div>
+         <div class="children"><h2>Volume (Liters/Gallons)
+        </h2><p class="second_child"></p></div>
+         <div class="children"><h2>Mass (Kilograms/Pounds)</h2><p class="third_child"></p></div>
+     </div>
+    
+    </div>
+    <script>let textInput = document.querySelector(".input")
+        let button = document.querySelector(".button")
+        let firstChild = document.querySelector(".first_child")
+        let secondChild = document.querySelector(".second_child")
+        let thirdchild = document.querySelector(".third_child")
+        
+        button.addEventListener("click", function(){
+            // this is for meter to feet
+            let metervalue = textInput.value;
+            let metersSum = (metervalue * 3.281).toFixed(2);
+            //this is for feet to meter
+            let feetvalue = textInput.value;
+            let feetSum = (feetvalue / 3.281)
+            firstChild.textContent = `${metervalue} meters = ${metersSum} feet | ${metervalue} feet = ${feetSum} meters`
+        
+            //|| this is for second child 
+            let litervalue = textInput.value;
+            let literSum = (litervalue * 0.264).toFixed(2);
+            let gallonvalue = textInput.value;
+            let gallonSum = (feetvalue / 0.264).toFixed(2);
+             secondChild.textContent = `${litervalue} liters = ${literSum} gallons | ${gallonvalue} gallons = ${gallonSum} liters`
+        
+            //|| this is for third value
+            let kilovalue= textInput.value;
+            let kilosum = (kilovalue * 2.204).toFixed(2);
+            let pound = textInput.value;
+            let poundsum = (pound / 2.204).toFixed(2);
+             thirdchild.textContent = `${kilovalue} kilos = ${kilosum} Pounds | ${pound} pounds = ${poundsum} KG`
+            
+        })
+        
+        </script>
+</body>
+</html>
